@@ -1,122 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-
+import "./App.css";
+import favicon from "../src/assets/favicon-32x32.png";
+import sun from "./assets/desktop/icon-sun.svg";
+import moon from "./assets/desktop/icon-moon.svg";
+import mobileBG from "./assets/mobile/bg-image-daytime.jpg";
+import refresh from "./assets/desktop/icon-refresh.svg";
+import down from './assets/desktop/icon-arrow-down.svg';
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+  return <ClockApp />;
 }
 
-export default App
+export default App;
+
+function ClockApp() {
+  return (
+    <div
+      className="flex flex-col justify-between max-w-[357px] max-h-[667px] py-8 px-4 mx-auto h-screen bg-center bg-cover"
+      style={{ backgroundImage: `url(${mobileBG})` }}
+    >
+      <div className="flex gap-4">
+        <div>
+          <p className="text-white opacity-100">
+            “The science of operations, as derived from mathematics more
+            especially, is a science of itself, and has its own abstract truth
+            and value.”
+          </p>
+          <p className="text-white mt-4">
+            <b>Ada Lovelace</b>
+          </p>
+        </div>
+
+       
+          <img src={refresh} alt="spinner" className="w-[18px] h-[24px] fill-white"/>
+        
+      </div>
+      <div className="flex flex-col gap-16 justify-between">
+        <div className="flex flex-col gap-2">
+          <div className="flex">
+            <span>
+              <img src={sun} alt="sun" />
+            </span>
+            <p className="mx-4 text-white text-lg">GOOD MORNING</p>
+          </div>
+          <div className="flex items-end">
+            <span className="text-white text-7xl">
+              <b>11:57</b>
+            </span>
+            <span className="text-white mx-4">BST</span>
+          </div>
+          <p className="text-white">IN LONDON, UK</p>
+        </div>
+        <div className="flex justify-center items-center w-[143px] h-[56px] gap-2 border border-white rounded-full bg-white">
+          <p className="tracking-[0.3rem]"> <b>MORE</b></p>
+          <div className="bg-black flex items-center justify-center w-[42px] h-[42px] rounded-full"><img src={down} alt="arrow-down" /></div>
+        </div>
+      </div>
+    </div>
+  );
+}
